@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuttGold Bet - Bilhetes de Futebol Prontos</title>
+    
+    <!-- Importa a fonte (Poppins) do Google Fonts --><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Importa ícones (Font Awesome) --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Estilos CSS Embutidos --><style>
+        /* --------------------------------- */
+        /* CONFIGURAÇÕES GLOBAIS E VARIÁVEIS */
+        /* --------------------------------- */
+        :root {
+            --color-primary-green: #0a4829;  /* Verde do logo */
+            --color-secondary-gold: #d4af37; /* Dourado do logo */
+            --color-gold-gradient: linear-gradient(145deg, #f0c94b, #b8860b);
+            --color-dark-bg: #121212;       /* Fundo escuro principal */
+            --color-card-bg: #1f1f1f;       /* Fundo para cards e seções */
+            --color-text: #f0f0f0;          /* Texto principal */
+            --color-text-secondary: #aaa;   /* Texto secundário */
+            --shadow-light: rgba(0, 0, 0, 0.2);
+            --shadow-gold: rgba(212, 175, 55, 0.25);
+        }
+
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--color-dark-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--color-text);
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--color-text-secondary);
+        }
+
+        section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .highlight-gold {
+            color: var(--color-secondary-gold);
+        }
+
+        /* --------------------------------- */
+        /* BOTÃO DE CTA (CALL TO ACTION)     */
+        /* --------------------------------- */
+        .cta-button {
+            display: inline-block;
+            background: var(--color-gold-gradient);
+            color: #000;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 18px 40px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow-gold);
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px var(--shadow-gold);
+        }
+
+        .cta-button .fa-telegram-plane {
+            margin-right: 10px;
+        }
+
+        /* Animação de pulso refinada */
+        @keyframes pulse {
+            0% { 
+                transform: scale(1);
+                box-shadow: 0 5px 15px var(--shadow-gold);
+            }
+            50% { 
+                transform: scale(1.03);
+                box-shadow: 0 8px 25px var(--shadow-gold);
+            }
+            100% { 
+                transform: scale(1);
+                box-shadow: 0 5px 15px var(--shadow-gold);
+            }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+
+        /* --------------------------------- */
+        /* 1. SEÇÃO PRINCIPAL (HERO)         */
+        /* --------------------------------- */
+        .hero {
+            background-image: linear-gradient(rgba(12, 12, 12, 0.85), rgba(12, 12, 12, 0.85)), url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=1470');
+            background-size: cover;
+            background-position: center;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            padding-bottom: 3rem;
+            position: relative;
+        }
+
+        .hero nav {
+            padding-top: 20px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .logo {
+            /* Aumentado para 500% (70px * 5) */
+            height: 350px; 
+            width: auto;
+        }
+
+        .hero-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero h1 {
+            /* Tamanho de fonte responsivo */
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 900;
+            max-width: 800px;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        /* --------------------------------- */
+        /* 2. "COMO FUNCIONA"                */
+        /* --------------------------------- */
+        .how-it-works {
+            background-color: var(--color-card-bg);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background-color: var(--color-dark-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--color-primary-green);
+            box-shadow: 0 4px 15px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px var(--shadow-light);
+        }
+
+        .step-card i {
+            font-size: 3rem;
+            color: var(--color-secondary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-text);
+        }
+
+        /* --------------------------------- */
+        /* 2.5 CTA INTERMEDIÁRIO (Estratégico) */
+        /* --------------------------------- */
+        .cta-mid {
+            background-color: var(--color-dark-bg);
+            padding: 4rem 0;
+        }
+        
+        .cta-mid h2 {
+            font-size: 2rem;
+            max-width: 500px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        /* --------------------------------- */
+        /* 3. "POR QUE ESCOLHER?" (FEATURES) */
+        /* --------------------------------- */
+        .features {
+            background-color: var(--color-dark-bg);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            text-align: left;
+        }
+
+        .feature-card {
+            background-color: var(--color-card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px var(--shadow-light);
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--color-secondary-gold);
+            margin-top: 5px;
+        }
+
+        .feature-card h4 {
+            font-size: 1.3rem;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+        }
+
+        /* --------------------------------- */
+        /* 4. PROVA SOCIAL                   */
+        /* --------------------------------- */
+        .social-proof {
+            background-color: var(--color-card-bg);
+        }
+
+        .member-count {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--color-dark-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--color-secondary-gold);
+            text-align: left;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px var(--shadow-light);
+        }
+
+        .testimonial-card blockquote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card cite {
+            font-weight: 700;
+            color: var(--color-secondary-gold);
+        }
+
+        /* --------------------------------- */
+        /* 5. CTA FINAL                      */
+        /* --------------------------------- */
+        .cta-final {
+             background-color: var(--color-dark-bg);
+        }
+        .cta-final p {
+            max-width: 600px;
+            margin: 1rem auto 2rem auto;
+            font-size: 1.1rem;
+        }
+
+        /* --------------------------------- */
+        /* 6. RODAPÉ                         */
+        /* --------------------------------- */
+        footer {
+            background-color: #000;
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .logo-footer {
+            height: 40px;
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto;
+            color: #888;
+        }
+
+        .footer-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-secondary-gold);
+        }
+
+        /* --------------------------------- */
+        /* RESPONSIVIDADE (MOBILE)           */
+        /* --------------------------------- */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+            .steps-container,
+            .testimonials,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .logo {
+                /* Reduz um pouco em telas pequenas para não dominar */
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. SEÇÃO PRINCIPAL (HERO) --><header class="hero">
+
+        <nav class="container">
+            <!-- LOGO ANEXADA AQUI --><img src="logo-futtgold.png" alt="FuttGold Logo" class="logo" onerror="this.src='https://placehold.co/1225x350/0a4829/d4af37?text=FuttGold'; this.onerror=null;">
+        </nav>
+        <div class="hero-content container">
+            <h1>Receba <span class="highlight-gold">Bilhetes de Futebol Vencedores</span> Direto no seu Telegram!</h1>
+            <p class="subtitle">Nossos especialistas entregam análises prontas com até 98% de assertividade. Pare de adivinhar, comece a lucrar.</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- 2. SEÇÃO "COMO FUNCIONA" --><section class="how-it-works">
+            <div class="container">
+                <h2>Sua Jornada Rumo aos Lucros em <span class="highlight-gold">3 Passos Simples</span></h2>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <h3>1. Clique e Entre</h3>
+                        <p>Acesse nosso bot exclusivo no Telegram com apenas um clique no botão.</p>
+                    </div>
+                    <div class="step-card">
+                        <i class="fas fa-ticket-alt"></i>
+                        <h3>2. Receba os Bilhetes</h3>
+                        <p>Nossa equipe envia diariamente bilhetes prontos e analisados por IA e especialistas.</p>
+                    </div>
+                    <div class="step-card">
+                        <i class="fas fa-sack-dollar"></i>
+                        <h3>3. Copie e Lucre</h3>
+                        <p>Copie as entradas na sua casa de apostas favorita e acompanhe os resultados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2.5. CTA INTERMEDIÁRIO (Posição Estratégica 1) --><section class="cta-mid">
+            <div class="container">
+                <h2>Pronto para parar de adivinhar e começar a <span class="highlight-gold">lucrar</span>?</h2>
+                <a href="https://t.me/futtgoldbet_bot" target="_blank" rel="noopener noreferrer" class="cta-button" id="telegram-link-mid">
+                    <i class="fab fa-telegram-plane"></i> ENTRAR NO GRUPO VIP AGORA!
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. SEÇÃO "POR QUE ESCOLHER?" (BENEFÍCIOS) --><section class="features">
+            <div class="container">
+                <h2>Por que a <span class="highlight-gold">FuttGold</span> é Sua Melhor Escolha?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-percentage"></i>
+                        <h4>Assertividade Incomparável</h4>
+                        <p>Usamos algoritmos e análise humana para buscar 95-98% de acertos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Economia de Tempo</h4>
+                        <p>Chega de perder horas analisando jogos. Nós fazemos o trabalho duro por você.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Comunidade Exclusiva</h4>
+                        <p>Faça parte de um grupo seleto de apostadores que buscam resultados reais e diários.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-gift"></i>
+                        <h4>Acesso Gratuito</h4>
+                        <p>Comece a lucrar sem investir um centavo. O acesso ao grupo é 100% gratuito.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PROVA SOCIAL (DEPOIMENTOS) --><section class="social-proof">
+            <div class="container">
+                <h2>O Que Nossos Membros Dizem?</h2>
+                <h3 class="member-count">Mais de <span class="highlight-gold">5.000 Membros</span> Lucrando Conosco!</h3>
+                <div class="testimonials">
+                    <div class="testimonial-card">
+                        <blockquote>"Desde que entrei no FuttGold, minha banca só cresce! A assertividade é surreal. Recomendo demais!"</blockquote>
+                        <cite>– João S., São Paulo/SP</cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <blockquote>"Finalmente um grupo sério e que entrega o que promete. Os bilhetes são muito bem analisados. Parabéns!"</blockquote>
+                        <cite>– Douglas G., Rio de Janeiro/RJ</cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <blockquote>"Era cético, mas me rendi aos resultados. Economizo tempo e ganho dinheiro. Perfeito!"</blockquote>
+                        <cite>– Carlos R., Belo Horizonte/MG</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SEÇÃO FINAL "CALL TO ACTION" (Posição Estratégica 2) --><section class="cta-final">
+            <div class="container">
+                <h2>Não Perca Mais Nenhuma Entrada!</h2>
+                <p>A cada minuto, novos bilhetes são enviados. Quanto mais você espera, mais dinheiro pode estar deixando na mesa. As vagas gratuitas são <span class="highlight-gold">limitadas</span>!</p>
+                <a href="https://t.me/futtgoldbet_bot" target="_blank" rel="noopener noreferrer" class="cta-button pulse" id="telegram-link-final">
+                    <i class="fab fa-telegram-plane"></i> SIM, EU QUERO LUCRAR COM FUTEBOL!
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 6. RODAPÉ --><footer>
+        <div class="container">
+            <!-- LOGO ANEXADA AQUI NO RODAPÉ --><img src="logo-futtgold.png" alt="FuttGold Logo" class="logo-footer" onerror="this.src='https://placehold.co/150x40/0a4829/d4af37?text=FuttGold'; this.onerror=null;">
+            <p class="disclaimer">
+                <strong>Aviso de Jogo Responsável:</strong> Apostas esportivas envolvem riscos. Aposte apenas o que você pode perder. Este serviço é destinado a maiores de 18 anos. Resultados passados não garantem retornos futuros, mesmo com nossa alta taxa de assertividade.
+            </p>
+            <div class="footer-links">
+                <a href="#">Termos de Uso</a> | 
+                <a href="#">Política de Privacidade</a>
+            </div>
+            <p>&copy; 2025 FuttGold. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
