@@ -240,7 +240,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-top: 3rem;
-            text-align: left;
+            /* text-align: left; <-- REMOVIDO DE AQUI */
         }
 
         .feature-card {
@@ -248,8 +248,12 @@
             padding: 2rem;
             border-radius: 12px;
             display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
+            /* --- MODIFICAÇÕES PARA CENTRALIZAR --- */
+            flex-direction: column;   /* Empilha os itens verticalmente */
+            align-items: center;    /* Centraliza horizontalmente */
+            text-align: center;     /* Centraliza o texto */
+            gap: 1rem;              /* Ajusta o espaçamento */
+            /* --- FIM DAS MODIFICAÇÕES --- */
             box-shadow: 0 4px 15px var(--shadow-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -262,7 +266,7 @@
         .feature-card i {
             font-size: 2rem;
             color: var(--color-secondary-gold);
-            margin-top: 5px;
+            /* margin-top: 5px; <-- Removido para melhor centralização */
         }
 
         .feature-card h4 {
@@ -447,11 +451,9 @@
                         <h4>Comunidade Exclusiva</h4>
                         <p>Faça parte de um grupo seleto de apostadores que buscam resultados reais e diários.</p>
                     </div>
-                    <div class="feature-card">
-                        <i class="fas fa-gift"></i>
-                        <h4>Acesso Gratuito</h4>
-                        <p>Comece a lucrar sem investir um centavo. O acesso ao grupo é 100% gratuito.</p>
-                    </div>
+                    <!-- 
+                    CARD DE ACESSO GRATUITO REMOVIDO DAQUI
+                    -->
                 </div>
             </div>
         </section>
@@ -480,7 +482,8 @@
         <!-- 5. SEÇÃO FINAL "CALL TO ACTION" (Posição Estratégica 2) --><section class="cta-final">
             <div class="container">
                 <h2>Não Perca Mais Nenhuma Entrada!</h2>
-                <p>A cada minuto, novos bilhetes são enviados. Quanto mais você espera, mais dinheiro pode estar deixando na mesa. As vagas gratuitas são <span class="highlight-gold">limitadas</span>!</p>
+                <!-- TEXTO ABAIXO ATUALIZADO -->
+                <p>A cada minuto, novos bilhetes são enviados. Quanto mais você espera, mais dinheiro pode estar deixando na mesa. As vagas para o grupo VIP são <span class="highlight-gold">limitadas</span>!</p>
                 <a href="https://t.me/futtgoldbet_bot" target="_blank" rel="noopener noreferrer" class="cta-button pulse" id="telegram-link-final">
                     <i class="fab fa-telegram-plane"></i> SIM, EU QUERO LUCRAR COM FUTEBOL!
                 </a>
